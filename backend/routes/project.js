@@ -3,8 +3,8 @@ import {
   getAllProjects,
   createProject,
   getProjectById
-} from '../controllers/projectsController.js'
-import tasksRouter from './tasks.js'
+} from '../controllers/projectController.js'
+import tasksRouter from './task.js'
 
 const router = Router()
 

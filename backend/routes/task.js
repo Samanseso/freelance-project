@@ -3,7 +3,7 @@ import {
   getTasksForProject,
   createTaskForProject,
   getTaskById
-} from '../controllers/tasksController.js'
+} from '../controllers/taskController.js'
 
 const router = Router({ mergeParams: true })
 

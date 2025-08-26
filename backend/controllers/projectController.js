@@ -13,8 +13,15 @@ export const getAllProjects = async (req, res, next) => {
 // POST /projects
 export const createProject = async (req, res, next) => {
   try {
-    const { title } = req.body
-    const project = await Project.create({ title, createdBy: null })
+    console.log(req.body)
+    const checkProject = await Project.findOne({ title : req.body.title });
+
+    if (checkProject) {
+        return res.status(409).json({ error : "Project already exists" });
+    }
+
+    const project = await Project.insertOne(req.body);
+    
     res.status(201).json(project)
   } catch (err) {
     next(err)
